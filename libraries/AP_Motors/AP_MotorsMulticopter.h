@@ -188,7 +188,7 @@ protected:
     // motor output variables
     bool                motor_enabled[AP_MOTORS_MAX_NUM_MOTORS];    // true if motor is enabled
 
-    // spool variables
+    // spool variablesu
     float               _spin_up_ratio;      // throttle percentage (0 ~ 1) between zero and throttle_min
 
     // battery voltage, current and air pressure compensation variables

@@ -470,6 +470,7 @@ void Sub::handle_jsbutton_press(uint8_t _button, bool shift, bool held)
     {
         SRV_Channel* chan = SRV_Channels::srv_channel(SERVO_CHAN_1 - 1); // 0-indexed
         uint16_t pwm_out = hal.rcout->read(SERVO_CHAN_1 - 1); // 0-indexed
+        printf("test: get pwm %d", pwm_out);
         pwm_out = constrain_int16(pwm_out + 50, chan->get_output_min(), chan->get_output_max());
         ServoRelayEvents.do_set_servo(SERVO_CHAN_1, pwm_out); // 1-indexed
     }

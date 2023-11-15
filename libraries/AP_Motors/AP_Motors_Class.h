@@ -21,6 +21,9 @@
 #define AP_MOTORS_MOT_12 11U
 
 #define AP_MOTORS_MAX_NUM_MOTORS 12
+// naodai
+#define OCEAN_ROTOR_X_NUM_MOTORS 8
+
 
 // motor update rate
 #define AP_MOTORS_SPEED_DEFAULT     490 // default output rate to the motors

@@ -509,6 +509,21 @@ private:
     void control_depth();
     bool manual_init(void);
     void manual_run();
+    
+    // naodai
+    // motor percent power
+    void motor_set(float *motor_control);
+    
+    // light pwm
+    void light_set(int16_t light_control);
+    
+    // gripper pwm
+    void gripper_set(int16_t gripper_control);
+    
+    // t265 power control 
+    // void t265_power_set(int16_t t265_power_control);
+
+
     void failsafe_sensors_check(void);
     void failsafe_crash_check();
     void failsafe_ekf_check(void);

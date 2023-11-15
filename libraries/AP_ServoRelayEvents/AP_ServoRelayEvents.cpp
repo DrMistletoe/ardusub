@@ -23,6 +23,7 @@
 #include <RC_Channel/RC_Channel.h>
 #include <SRV_Channel/SRV_Channel.h>
 #include <GCS_MAVLink/GCS.h>
+#include <stdio.h>
 
 extern const AP_HAL::HAL& hal;
 
@@ -52,6 +53,7 @@ bool AP_ServoRelayEvents::do_set_servo(uint8_t _channel, uint16_t pwm)
     }
     c->set_output_pwm(pwm);
     c->ignore_small_rcin_changes();
+    printf("Channel %d, pwm: %d\n", _channel, pwm);
     return true;
 }
 

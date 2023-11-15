@@ -7,6 +7,7 @@
 #include <AP_Math/AP_Math.h>        // ArduPilot Mega Vector/Matrix math Library
 #include <RC_Channel/RC_Channel.h>     // RC Channel Library
 #include "AP_MotorsMatrix.h"
+#include <stdio.h>
 
 /// @class      AP_MotorsMatrix
 class AP_Motors6DOF : public AP_MotorsMatrix {
@@ -61,6 +62,53 @@ public:
     // var_info for holding Parameter information
     static const struct AP_Param::GroupInfo        var_info[];
 
+    //naodai
+    void set_motor_control_value(float *motor_control_output) 
+    {
+         int8_t i;
+         for (i = 0; i < OCEAN_ROTOR_X_NUM_MOTORS; i++)
+         {
+            _motor_control_output[i] = motor_control_output[i];
+        // printf("%f", _motor_control_output[0]);  
+         }
+    
+    };
+
+    // naodai 
+    float get_motor_1_value() const {return _motor_control_output[0];};
+    float get_motor_2_value() const {return _motor_control_output[1];};
+    float get_motor_3_value() const {return _motor_control_output[2];};
+    float get_motor_4_value() const {return _motor_control_output[3];};
+    float get_motor_5_value() const {return _motor_control_output[4];};
+    float get_motor_6_value() const {return _motor_control_output[5];};
+    float get_motor_7_value() const {return _motor_control_output[6];};
+    float get_motor_8_value() const {return _motor_control_output[7];};
+    
+    // naodai
+    // void set_light_control_value(int16_t light_control)
+    // {
+        // _light_control_output = light_control;
+        // 
+    // }
+
+    // naodai
+    // int16_t get_light_value() const {return _light_control_output;};
+
+    // naodai 
+    // void set_gripper_control_value(int16_t gripper_control_output)
+    // {
+        // _gripper_control_output = gripper_control_output;
+    // }
+
+    // void set_t265_power_control_value(int16_t t265_power_control_out)
+    // {
+        // _t265_power_control_out = t265_power_control_out;
+    // }
+
+    // naodai
+    // int16_t get_gripper_value() const {return _gripper_control_output;};
+    // int16_t get_t265_power_value() const {return _t265_power_control_out;};
+
 protected:
     // return current_limit as a number from 0 ~ 1 in the range throttle_min to throttle_max
     float               get_current_limit_max_throttle() override;
@@ -78,8 +126,19 @@ protected:
 
     float               _forward_factor[AP_MOTORS_MAX_NUM_MOTORS]; // each motors contribution to forward/backward
     float               _lateral_factor[AP_MOTORS_MAX_NUM_MOTORS];  // each motors contribution to lateral (left/right)
+ 
+    // naodai: set motor control signal
+    float _motor_control_output[OCEAN_ROTOR_X_NUM_MOTORS];    
+    // naodai: set light control signal
+    u_int16_t _light_control_output;
+    // naodai: set gripper control signal 
+    u_int16_t _gripper_control_output;
+    // u_int16_t _t265_power_control_out;
 
     // current limiting
     float _output_limited = 1.0f;
     float _batt_current_last = 0.0f;
+
+    // motor_enabled[OCEAN_ROTOR_X_NUM_MOTORS] = true;
+    // motor_enabled[OCEAN_ROTOR_X_NUM_MOTORS + 1] = true;
 };

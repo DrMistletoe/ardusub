@@ -292,7 +292,7 @@ private:
     // output value based on function
     void output_ch(void);
 
-    // setup output type and range based on function
+    // setup output type and range based on function//naodai
     void aux_servo_function_setup(void);
 
     // return PWM for a given limit value
@@ -333,7 +333,7 @@ public:
 
     static const struct AP_Param::GroupInfo var_info[];
 
-    // set the default function for a channel
+    // set the default function for a channel//naodai
     static void set_default_function(uint8_t chan, SRV_Channel::Aux_servo_function_t function);
 
     // set output value for a function channel as a pwm value

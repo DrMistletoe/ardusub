@@ -288,7 +288,7 @@ const AP_Param::Info Sub::var_info[] = {
     // @User: Standard
     // @RebootRequired: True
     // @Values: 0:BlueROV1, 1:Vectored, 2:Vectored_6DOF, 3:Vectored_6DOF_90, 4:SimpleROV-3, 5:SimpleROV-4, 6:SimpleROV-5, 7:Custom
-    GSCALAR(frame_configuration, "FRAME_CONFIG", AP_Motors6DOF::SUB_FRAME_VECTORED),
+    GSCALAR(frame_configuration, "FRAME_CONFIG", AP_Motors6DOF::SUB_FRAME_VECTORED_6DOF),
 
     // @Group: BTN0_
     // @Path: ../libraries/AP_JSButton/AP_JSButton.cpp
